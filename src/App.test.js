@@ -1,8 +1,15 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test("test handing ",()=>{
+    render(<App/>);
+    const el = screen.getByRole("heading")
+    expect(el).toBeInTheDocument();
+})
+
+test("testing mock API ",async()=>{
+    render(<App/>);
+    const el1 = await screen.findByRole('listitem');
+    expect(el1).toHaveLength(4)
+  
+})
